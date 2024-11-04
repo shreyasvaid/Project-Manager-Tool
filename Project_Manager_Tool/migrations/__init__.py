@@ -1,1 +1,1 @@
-default_app_config = 'hello.apps.HelloConfig'
+default_app_config = 'Project_Manager_Tool.apps.HelloConfig'
