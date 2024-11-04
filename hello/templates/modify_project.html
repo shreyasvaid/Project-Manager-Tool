@@ -1,0 +1,16 @@
+<h1>Modify Project</h1>
+<ul>
+  {% for project in projects %}
+    <li>
+      <strong>{{ project.name }}</strong><br>
+      {% if project.project_id %}
+        <a href="{% url 'edit_project' project.project_id %}">Edit</a> | 
+        <a href="{% url 'delete_project' project.project_id %}">Delete</a>
+      {% else %}
+        <span>No ID available for this project</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'index' %}">Home</a>

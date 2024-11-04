@@ -1,0 +1,55 @@
+<h1>Project Report</h1>
+
+<form method="get" action="{% url 'project_report' %}">
+  <label for="project_id">Select a Project:</label>
+  <select name="project_id" id="project_id" onchange="this.form.submit()">
+    <option value="">-- Select a Project --</option>
+    {% for project in all_projects %}
+      <option value="{{ project.project_id }}" {% if project.project_id == selected_project_id %}selected{% endif %}>
+        {{ project.name }}
+      </option>
+    {% endfor %}
+  </select>
+</form>
+
+{% if report_data %}
+  {% for project in report_data %}
+    <h2>Project: {{ project.name }}</h2>
+    <p><strong>Description:</strong> {{ project.description }}</p>
+    <p><strong>Start Date:</strong> {{ project.start_date }}</p>
+    <p><strong>End Date:</strong> {{ project.end_date }}</p>
+
+    <h3>Task Summary</h3>
+    <ul>
+      {% for status in project.task_statuses %}
+        <li>{{ status.status }}: {{ status.total }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Tasks</h3>
+    <table border="1">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Due Date</th>
+        <th>Assigned To</th>
+      </tr>
+      {% for task in project.tasks %}
+        <tr>
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.status }}</td>
+          <td>{{ task.due_date }}</td>
+          <td>{{ task.assigned_to }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <hr>
+  {% endfor %}
+{% else %}
+  <p>Please select a project to view its report.</p>
+{% endif %}
+<a href="{% url 'index' %}" class="button">Home</a>
+
+

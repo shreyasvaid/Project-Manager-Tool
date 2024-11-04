@@ -1,0 +1,16 @@
+<h1>Modify Team Member</h1>
+<ul>
+  {% for member in team_members %}
+    <li>
+      <strong>{{ member.name }}</strong><br>
+      {% if member.member_id %}
+        <a href="{% url 'edit_team_member' member.member_id %}">Edit</a> | 
+        <a href="{% url 'delete_team_member' member.member_id %}">Delete</a>
+      {% else %}
+        <span>No ID available for this team member</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'index' %}">Home</a>

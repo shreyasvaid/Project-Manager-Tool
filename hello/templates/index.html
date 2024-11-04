@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Application</title>
+    <style>
+        body { background-color: #83c765; color: white; font-family: Arial, sans-serif; text-align: center; }
+        .button { display: inline-block; margin: 10px; padding: 10px 20px; font-size: 16px; font-weight: bold; color: #2e0000; background-color: #ffffff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; }
+        .button:hover { background-color: #ddd; }
+    </style>
+</head>
+<body>
+    <h1><strong>Project Management Application</strong></h1>
+    <p>Why am I still a CS major?</p>
+    <p>- Shreyas Vaid</p>
+
+    <img src="https://www.tuxboard.com/wp-content/uploads/2018/07/Barack-Obama-pose-devant-un-homme-endormi-dans-le-metro-Mythe-Internet-2.jpg" alt="Image" style="width: 75%; max-width: 400px; height: auto; margin: 20px auto;" />
+
+    <div>
+        <a href="{% url 'add_project' %}" class="button">Add Project</a>
+        <a href="{% url 'modify_project' %}" class="button">Modify Project</a>
+        <a href="{% url 'add_task' %}" class="button">Add Task</a>
+        <a href="{% url 'modify_task' %}" class="button">Modify Task</a>
+        <a href="{% url 'add_team_member' %}" class="button">Add Team Member</a>
+        <a href="{% url 'modify_team_member' %}" class="button">Modify Team Member</a>
+        <a href="{% url 'project_report' %}" class="button">Project Report</a> <!-- Project Report Button -->
+    </div>
+</body>
+</html>

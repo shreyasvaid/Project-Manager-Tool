@@ -1,0 +1,16 @@
+<h1>Modify Task</h1>
+<ul>
+  {% for task in tasks %}
+    <li>
+      <strong>{{ task.title }}</strong><br>
+      {% if task.task_id %}
+        <a href="{% url 'edit_task' task.task_id %}">Edit</a> | 
+        <a href="{% url 'delete_task' task.task_id %}">Delete</a>
+      {% else %}
+        <span>No ID available for this task</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'index' %}">Home</a>
