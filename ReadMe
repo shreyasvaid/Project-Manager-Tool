@@ -1,4 +1,4 @@
-Please make sure to delete the sqlite3 Database in the project as well as the migrations in the /ProjectManagerTool/migrations folder. 
+Please make sure to delete the sqlite3 Database in the project titled "0001_initial.py" as well as the migrations in the /ProjectManagerTool/migrations folder. 
 
 This is to ensure that you are not working with old and antiquated data that may crash the program.
 
