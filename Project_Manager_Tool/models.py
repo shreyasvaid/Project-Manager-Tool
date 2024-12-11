@@ -10,10 +10,10 @@ class TeamMember(models.Model):
 
 class Project(models.Model):
     project_id = models.CharField(primary_key=True, max_length=100)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, db_index=True) # index
     description = models.TextField()
-    start_date = models.DateField()
-    end_date = models.DateField()
+    start_date = models.DateField() 
+    end_date = models.DateField() 
 
     def __str__(self):
         return self.name
@@ -27,11 +27,9 @@ class Task(models.Model):
     ]
     title = models.CharField(max_length=100)
     description = models.TextField()
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending', db_index=True) # index
     due_date = models.DateField()
-    # Foreign key linking to Project as a One to Many relationship
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='tasks')
-    # Foreign key linking to TeamMember as a Many to One relationship
     assigned_to = models.ForeignKey(TeamMember, on_delete=models.SET_NULL, null=True, related_name='tasks')
 
     def __str__(self):
